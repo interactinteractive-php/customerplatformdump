@@ -22515,8 +22515,8 @@ ALTER TABLE "customer_proxy_config" ADD CONSTRAINT "customer_p_modified_u_fkey" 
 -- ----------------------------
 -- Foreign Keys structure for table db_dashboard_user
 -- ----------------------------
-ALTER TABLE "db_dashboard_user" ADD CONSTRAINT "db_dashboard_user_fk1" FOREIGN KEY ("db_dashboard_id") REFERENCES "cloud_platform_uat"."db_dashboard" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "db_dashboard_user" ADD CONSTRAINT "db_dashboard_user_fk2" FOREIGN KEY ("db_dashboard_dtl_id") REFERENCES "cloud_platform_uat"."db_dashboard_dtl" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "db_dashboard_user" ADD CONSTRAINT "db_dashboard_user_fk1" FOREIGN KEY ("db_dashboard_id") REFERENCES "db_dashboard" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "db_dashboard_user" ADD CONSTRAINT "db_dashboard_user_fk2" FOREIGN KEY ("db_dashboard_dtl_id") REFERENCES "db_dashboard_dtl" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- ----------------------------
 -- Foreign Keys structure for table db_data_mart_schedule
@@ -22584,8 +22584,8 @@ ALTER TABLE "fin_fiscal_period_user" ADD CONSTRAINT "fin_fiscal_period_user_fk2"
 -- Foreign Keys structure for table hrm_employee
 -- ----------------------------
 ALTER TABLE "hrm_employee" ADD CONSTRAINT "hrm_employee_fk1" FOREIGN KEY ("person_id") REFERENCES "base_person" ("person_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "hrm_employee" ADD CONSTRAINT "hrm_employee_fk15" FOREIGN KEY ("drive_start_year_id") REFERENCES "cloud_platform_uat"."ref_year" ("year_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "hrm_employee" ADD CONSTRAINT "hrm_employee_fk8" FOREIGN KEY ("zodiac_sign_id") REFERENCES "cloud_platform_uat"."ref_zodiac_sign" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "hrm_employee" ADD CONSTRAINT "hrm_employee_fk15" FOREIGN KEY ("drive_start_year_id") REFERENCES "ref_year" ("year_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "hrm_employee" ADD CONSTRAINT "hrm_employee_fk8" FOREIGN KEY ("zodiac_sign_id") REFERENCES "ref_zodiac_sign" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "hrm_employee" ADD CONSTRAINT "hrm_employee_fk98" FOREIGN KEY ("created_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "hrm_employee" ADD CONSTRAINT "hrm_employee_fk99" FOREIGN KEY ("modified_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -22593,7 +22593,7 @@ ALTER TABLE "hrm_employee" ADD CONSTRAINT "hrm_employee_fk99" FOREIGN KEY ("modi
 -- Foreign Keys structure for table hrm_employee_key
 -- ----------------------------
 ALTER TABLE "hrm_employee_key" ADD CONSTRAINT "hrm_employee_key_fk2" FOREIGN KEY ("department_id") REFERENCES "org_department" ("department_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "hrm_employee_key" ADD CONSTRAINT "hrm_employee_key_fk7" FOREIGN KEY ("currency_id") REFERENCES "cloud_platform_uat"."ref_currency" ("currency_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "hrm_employee_key" ADD CONSTRAINT "hrm_employee_key_fk7" FOREIGN KEY ("currency_id") REFERENCES "ref_currency" ("currency_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "hrm_employee_key" ADD CONSTRAINT "hrm_employee_key_fk98" FOREIGN KEY ("created_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "hrm_employee_key" ADD CONSTRAINT "hrm_employee_key_fk99" FOREIGN KEY ("modified_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -22711,14 +22711,14 @@ ALTER TABLE "ntf_template" ADD CONSTRAINT "ntf_template_fk99" FOREIGN KEY ("modi
 -- ----------------------------
 ALTER TABLE "ntf_template_system" ADD CONSTRAINT "ntf_template_system_fk98" FOREIGN KEY ("created_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "ntf_template_system" ADD CONSTRAINT "ntf_template_system_fk99" FOREIGN KEY ("modified_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "ntf_template_system" ADD CONSTRAINT "ntf_template_system_to_sys_fk" FOREIGN KEY ("system_id") REFERENCES "cloud_platform_uat"."um_system" ("system_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "ntf_template_system" ADD CONSTRAINT "ntf_template_system_to_sys_fk" FOREIGN KEY ("system_id") REFERENCES "um_system" ("system_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "ntf_template_system" ADD CONSTRAINT "ntf_template_system_to_tmp_fk" FOREIGN KEY ("template_id") REFERENCES "ntf_template" ("template_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- ----------------------------
 -- Foreign Keys structure for table ntf_template_user
 -- ----------------------------
 ALTER TABLE "ntf_template_user" ADD CONSTRAINT "ntf_template_user_fk1" FOREIGN KEY ("template_code") REFERENCES "ntf_template" ("globe_dictionary_code") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "ntf_template_user" ADD CONSTRAINT "ntf_template_user_fk2" FOREIGN KEY ("role_id") REFERENCES "cloud_platform_uat"."um_role" ("role_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "ntf_template_user" ADD CONSTRAINT "ntf_template_user_fk2" FOREIGN KEY ("role_id") REFERENCES "um_role" ("role_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "ntf_template_user" ADD CONSTRAINT "ntf_template_user_fk98" FOREIGN KEY ("created_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "ntf_template_user" ADD CONSTRAINT "ntf_template_user_fk99" FOREIGN KEY ("modified_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "ntf_template_user" ADD CONSTRAINT "ntf_template_user_to_user_fk" FOREIGN KEY ("user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -22735,7 +22735,7 @@ ALTER TABLE "ntf_user_config" ADD CONSTRAINT "ntf_user_config_fk3" FOREIGN KEY (
 -- ----------------------------
 ALTER TABLE "org_department" ADD CONSTRAINT "org_department_fk1" FOREIGN KEY ("parent_id") REFERENCES "org_department" ("department_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "org_department" ADD CONSTRAINT "org_department_fk3" FOREIGN KEY ("dependency_department_id") REFERENCES "org_department" ("department_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "org_department" ADD CONSTRAINT "org_department_fk96" FOREIGN KEY ("wfm_workflow_id") REFERENCES "cloud_platform_uat"."meta_wfm_workflow" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "org_department" ADD CONSTRAINT "org_department_fk96" FOREIGN KEY ("wfm_workflow_id") REFERENCES "meta_wfm_workflow" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "org_department" ADD CONSTRAINT "org_department_fk98" FOREIGN KEY ("created_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "org_department" ADD CONSTRAINT "org_department_fk99" FOREIGN KEY ("modified_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -22812,7 +22812,7 @@ ALTER TABLE "sysint_service_method_log_dtl" ADD CONSTRAINT "sysint_service_dtl_f
 -- ----------------------------
 -- Foreign Keys structure for table um_config_value
 -- ----------------------------
-ALTER TABLE "um_config_value" ADD CONSTRAINT "um_config_value_fk1" FOREIGN KEY ("config_group_id") REFERENCES "cloud_platform_uat"."um_config_group" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "um_config_value" ADD CONSTRAINT "um_config_value_fk1" FOREIGN KEY ("config_group_id") REFERENCES "um_config_group" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- ----------------------------
 -- Foreign Keys structure for table um_login_attempts
@@ -22830,7 +22830,7 @@ ALTER TABLE "um_meta_permission" ADD CONSTRAINT "um_meta_permission_fk99" FOREIG
 ALTER TABLE "um_role_customer" ADD CONSTRAINT "um_role_cu_created_us_fkey" FOREIGN KEY ("created_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "um_role_customer" ADD CONSTRAINT "um_role_cu_customer_i_fkey" FOREIGN KEY ("customer_id") REFERENCES "crm_customer" ("customer_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "um_role_customer" ADD CONSTRAINT "um_role_cu_modified_u_fkey" FOREIGN KEY ("modified_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "um_role_customer" ADD CONSTRAINT "um_role_cu_role_id_fkey" FOREIGN KEY ("role_id") REFERENCES "cloud_platform_uat"."um_role" ("role_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "um_role_customer" ADD CONSTRAINT "um_role_cu_role_id_fkey" FOREIGN KEY ("role_id") REFERENCES "um_role" ("role_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- ----------------------------
 -- Foreign Keys structure for table um_system_user
@@ -22865,8 +22865,8 @@ ALTER TABLE "um_user_monpass_map" ADD CONSTRAINT "um_user_monpass_map_fk1" FOREI
 -- ----------------------------
 -- Foreign Keys structure for table um_user_relation
 -- ----------------------------
-ALTER TABLE "um_user_relation" ADD CONSTRAINT "um_user_rel_to_role_src_fk" FOREIGN KEY ("src_role_id") REFERENCES "cloud_platform_uat"."um_role" ("role_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "um_user_relation" ADD CONSTRAINT "um_user_rel_to_role_trg_fk" FOREIGN KEY ("trg_role_id") REFERENCES "cloud_platform_uat"."um_role" ("role_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "um_user_relation" ADD CONSTRAINT "um_user_rel_to_role_src_fk" FOREIGN KEY ("src_role_id") REFERENCES "um_role" ("role_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "um_user_relation" ADD CONSTRAINT "um_user_rel_to_role_trg_fk" FOREIGN KEY ("trg_role_id") REFERENCES "um_role" ("role_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "um_user_relation" ADD CONSTRAINT "um_user_rel_to_user_src_fk" FOREIGN KEY ("src_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "um_user_relation" ADD CONSTRAINT "um_user_rel_to_user_trg_fk" FOREIGN KEY ("trg_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "um_user_relation" ADD CONSTRAINT "um_user_relation_fk98" FOREIGN KEY ("created_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -22877,7 +22877,7 @@ ALTER TABLE "um_user_relation" ADD CONSTRAINT "um_user_relation_fk99" FOREIGN KE
 -- ----------------------------
 ALTER TABLE "um_user_role" ADD CONSTRAINT "um_user_role_fk98" FOREIGN KEY ("created_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "um_user_role" ADD CONSTRAINT "um_user_role_fk99" FOREIGN KEY ("modified_user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "um_user_role" ADD CONSTRAINT "um_user_role_to_role_fk" FOREIGN KEY ("role_id") REFERENCES "cloud_platform_uat"."um_role" ("role_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "um_user_role" ADD CONSTRAINT "um_user_role_to_role_fk" FOREIGN KEY ("role_id") REFERENCES "um_role" ("role_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "um_user_role" ADD CONSTRAINT "um_user_role_to_user_fk" FOREIGN KEY ("user_id") REFERENCES "um_user" ("user_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- ----------------------------

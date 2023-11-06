@@ -20635,7 +20635,7 @@ UNION ALL
  SELECT '1000000000000'::bigint::numeric + mpm.id AS id,
     mpm.src_meta_data_id AS proxy_meta_data_id,
     mpm.trg_meta_data_id AS action_meta_data_id
-   FROM cloud_platform_uat.meta_proxy_map mpm
+   FROM meta_proxy_map mpm
   WHERE mpm.is_default = 1::numeric AND NOT (mpm.src_meta_data_id IN ( SELECT cpc.proxy_meta_data_id
            FROM customer_proxy_config cpc
           WHERE cpc.is_default = 1::numeric));
